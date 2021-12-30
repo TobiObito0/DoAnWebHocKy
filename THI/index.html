@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./Assets/css/reset.css" />
+    <link rel="stylesheet" href="./Assets/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <title>The Generics | Store</title>
+  </head>
+  <body>
+    <header class="main-header">
+      <nav class="main-nav nav">
+        <ul>
+          <li><a href="./index.html">HOME</a></li>
+          <li><a href="#">STORE</a></li>
+          <li><a href="./about.html">ABOUT</a></li>
+          <li>
+            <button
+              class="login-title"
+              id="login"
+              onclick="document.getElementById('login-box').style.display='block'"
+            >
+              Log In
+            </button>
+          </li>
+          <li>
+            <button
+              class="logout-title"
+              id="logout"
+              onclick="sessionStorage.clear(), window.location.reload()"
+            >
+              Log Out
+            </button>
+          </li>
+        </ul>
+      </nav>
+
+      <h1 class="band-name band-name-large">The Generics</h1>
+      <div class="search-box">
+        <form action="" onsubmit="return false">
+          <input type="text" id="search" placeholder="Search Product" />
+          <!-- <button id="btn-search">Search</button> -->
+        </form>
+      </div>
+      <div class="filter-box" style="margin: 0 37rem;">
+        <a href="#" class="btn1 active" data-filter="all">All</a>
+        <a href="#" class="btn1" data-filter="watch">Watch</a>
+        <a href="#" class="btn1" data-filter="shirt">Shirt</a>
+        <a href="#" class="btn1" data-filter="dress">Dress</a>
+        <a href="#" class="btn1" data-filter="shoes">Shoes</a>
+      </div>
+    </header>
+    <div class="signup-box" id="signup-box">
+      <h1>Sign Up</h1>
+      <h4>It's free and only takes a minute</h4>
+      <form id="signup-box">
+        <label>Username</label>
+        <input type="text" id="su-username" placeholder="" />
+        <label>Password</label>
+        <input type="password" id="su-password" placeholder="" />
+
+        <input type="button" id="su-submit" value="Submit" onclick="store()"/>
+      </form>
+      <p class="para-2">
+        Already have an account?
+        <button
+          class="login-title"
+          onclick="document.getElementById('login-box').style.display='block',document.getElementById('signup-box').style.display='none'"
+        >
+          Login here
+        </button>
+        <button
+          class="cancel"
+          onclick="document.getElementById('signup-box').style.display='none'"
+        >
+          Cancel
+        </button>
+      </p>
+    </div>
+    <div class="login-box" id="login-box">
+      <h1>Login</h1>
+      <form id="login-box">
+        <label>Username</label>
+        <input type="text" id="username" placeholder="" />
+        <label>Password</label>
+        <input type="password" id="password" placeholder="" />
+        <input type="button" id="ln-submit" value="Submit" onclick="check()"/>
+      </form>
+      <p class="para-2">
+        Not have an account?
+        <button
+          class="signup-title"
+          onclick="document.getElementById('signup-box').style.display='block',document.getElementById('login-box').style.display='none'"
+        >
+          Sign Up Here
+        </button>
+        <button
+          class="cancel"
+          onclick="document.getElementById('login-box').style.display='none'"
+        >
+          Cancel
+        </button>
+      </p>
+    </div>
+
+    <section class="container content-section">
+      <div class="shop-items">
+        <div class="shop-item shoes">
+          <span class="shop-item-title"
+            ><h2>Giày Run One cho Nam - Xám</h2></span
+          >
+          <img class="shop-item-image" src="./Assets/img/1.jpg" />
+          <div class="shop-item-details">
+            <span class="shop-item-price">$12.99</span>
+            <button
+              class="btn btn-primary shop-item-button"
+              id="add"
+              type="button"
+            >
+              ADD TO CART
+            </button>
+          </div>
+        </div>
+        <div class="shop-item shoes">
+          <span class="shop-item-title"
+            ><h2>Giày Nike Fw Nike Reposto</h2></span
+          >
+          <img class="shop-item-image" src="./Assets/img/2.jpg" />
+          <div class="shop-item-details">
+            <span class="shop-item-price">$14.99</span>
+            <button
+              class="btn btn-primary shop-item-button"
+              id="add"
+              type="button"
+            >
+              ADD TO CART
+            </button>
+          </div>
+        </div>
+        <div class="shop-item dress">
+          <span class="shop-item-title"><h2>Váy Sơ Mi Thắt Nơ Đai Eo</h2></span>
+          <img class="shop-item-image" src="./Assets/img/3.jpg" />
+          <div class="shop-item-details">
+            <span class="shop-item-price">$9.99</span>
+            <button
+              class="btn btn-primary shop-item-button"
+              id="add"
+              type="button"
+            >
+              ADD TO CART
+            </button>
+          </div>
+        </div>
+        <div class="shop-item watch">
+          <span class="shop-item-title"><h2>Citizen EQ9065-50E</h2></span>
+          <img class="shop-item-image" src="./Assets/img/4.jpg" />
+          <div class="shop-item-details">
+            <span class="shop-item-price">$19.99</span>
+            <button
+              class="btn btn-primary shop-item-button"
+              id="add"
+              type="button"
+            >
+              ADD TO CART
+            </button>
+          </div>
+        </div>
+
+        <div class="shop-item shirt">
+          <span class="shop-item-title"><h2>Áo Thun Cotton Cổ Tròn</h2></span>
+          <img class="shop-item-image" src="./Assets/img/5.jpg" />
+          <div class="shop-item-details">
+            <span class="shop-item-price">$9.99</span>
+            <button
+              class="btn btn-primary shop-item-button"
+              id="add"
+              type="button"
+            >
+              ADD TO CART
+            </button>
+          </div>
+        </div>
+        <div class="shop-item shirt">
+          <span class="shop-item-title"><h2>Áo Polo Relax Ngắn Tay</h2></span>
+          <img class="shop-item-image" src="./Assets/img/6.jpg" />
+          <div class="shop-item-details">
+            <span class="shop-item-price">$6.99</span>
+            <button
+              class="btn btn-primary shop-item-button"
+              id="add"
+              type="button"
+            >
+              ADD TO CART
+            </button>
+          </div>
+        </div>
+        <div class="shop-item watch">
+          <span class="shop-item-title"
+            ><h2>Đồng hồ nam chính hãng Teintop T7015-1</h2></span
+          >
+          <img class="shop-item-image" src="./Assets/img/7.jpg" />
+          <div class="shop-item-details">
+            <span class="shop-item-price">$39.99</span>
+            <button
+              class="btn btn-primary shop-item-button"
+              id="add"
+              type="button"
+            >
+              ADD TO CART
+            </button>
+          </div>
+        </div>
+        <div class="shop-item dress">
+          <span class="shop-item-title"
+            ><h2>Đầm váy voan hoa dáng xòe Pc hàn quốc</h2></span
+          >
+          <img class="shop-item-image" src="./Assets/img/8.jpg" />
+          <div class="shop-item-details">
+            <span class="shop-item-price">$19.99</span>
+            <button
+              class="btn btn-primary shop-item-button"
+              id="add"
+              type="button"
+            >
+              ADD TO CART
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+      if (sessionStorage.getItem("status") != null) {
+        document.getElementById("login").style.display = "none";
+        document.getElementById("logout").style.display = "flex";
+        // document.getElementsByClassName('btn btn-primary shop-item-button').style.display = "flex";
+        var x = document.querySelectorAll("#add");
+        var i;
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "flex";
+        }
+      } else {
+        document.getElementById("login").style.display = "flex";
+        document.getElementById("logout").style.display = "none";
+        // document.getElementsByClassName('btn btn-primary shop-item-button').style.display = "none";
+        var x = document.querySelectorAll("#add");
+        var i;
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";
+        }
+        alert("login to buy product");
+      }
+    </script>
+    <section class="container content-section">
+      <h2 class="section-header">CART</h2>
+      <div class="cart-row">
+        <span class="cart-item cart-header cart-column">ITEM</span>
+        <span class="cart-price cart-header cart-column">PRICE</span>
+        <span class="cart-quantity cart-header cart-column">QUANTITY</span>
+      </div>
+      <div class="cart-items"></div>
+      <div class="cart-total">
+        <strong class="cart-total-title">Total</strong>
+        <span class="cart-total-price">$0</span>
+      </div>
+      <button class="btn btn-primary btn-purchase" type="button">
+        PURCHASE
+      </button>
+    </section>
+    <footer class="main-footer">
+      <div class="container main-footer-container">
+        <h3 class="band-name">The Generics</h3>
+        <ul class="nav footer-nav">
+          <li>
+            <a href="https://www.youtube.com" target="_blank">
+              <img src="./Assets/img/youtube.png" />
+            </a>
+          </li>
+          <li>
+            <a href="https://www.spotify.com" target="_blank">
+              <img src="./Assets/img/spotify.png" />
+            </a>
+          </li>
+          <li>
+            <a href="https://www.facebook.com" target="_blank">
+              <img src="./Assets/img/facebook.png" />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+    <script>
+      
+
+      const btns = document.querySelectorAll(".btn1");
+      const storeProducts = document.querySelectorAll(".shop-item");
+      // const search = document.getElementById(search);
+
+      for (i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", (e) => {
+          e.preventDefault();
+
+          const filter = e.target.dataset.filter;
+          console.log(filter);
+
+          storeProducts.forEach((product) => {
+            if (filter === "all") {
+              product.style.display = "block";
+            } else {
+              if (product.classList.contains(filter)) {
+                product.style.display = "block";
+              } else {
+                product.style.display = "none";
+              }
+            }
+          });
+        });
+      }
+
+      // SEARCH FILTER
+      const search = document.getElementById("search");
+      const productName = document.querySelectorAll(".shop-item-title h2");
+
+      // A BETTER WAY TO FILTER THROUGH THE PRODUCTS
+      search.addEventListener("keyup", filterProducts);
+
+      function filterProducts(e) {
+        const text = e.target.value.toLowerCase();
+        // console.log(productName[0]);
+        productName.forEach(function (product) {
+          const item = product.firstChild.textContent;
+          if (item.toLowerCase().indexOf(text) != -1) {
+            product.parentElement.parentElement.style.display = "block";
+          } else {
+            product.parentElement.parentElement.style.display = "none";
+          }
+        });
+      }
+        function check() {
+
+            var storedName = localStorage.getItem('name1');
+            var storedPw = localStorage.getItem('pw');
+
+            var userName = document.getElementById('username');
+            var userPw = document.getElementById('password');
+
+            if (userName.value == storedName && userPw.value == storedPw) {
+                sessionStorage.setItem('status', 'loggedIn');
+                alert('Login successful');
+                window.location.reload();
+            } else {
+                alert('Wrong credentials');
+                document.getElementById("password").value = "";
+                document.getElementById("username").value = "";
+            }
+        }
+        function store() {
+            var name1 = document.getElementById('su-username');
+            var pw = document.getElementById('su-password');
+            var storedName = localStorage.getItem('name1');
+            var storedPw = localStorage.getItem('pw');
+            if (name1.value == storedName && pw.value == storedPw) {
+                document.getElementById("su-password").value = "";
+                document.getElementById("su-username").value = "";
+                alert('Wrong credentials');
+            } else {
+
+                localStorage.setItem('name1', name1.value);
+                localStorage.setItem('pw', pw.value);
+                document.getElementById('signup-box').style.display = 'none';
+                document.getElementById('login-box').style.display = 'block';
+                alert('Sign up successful');
+            }
+        }
+        if (document.readyState == "loading") {
+            document.addEventListener("DOMContentLoaded", ready);
+        } else {
+            ready();
+        }
+
+        function ready() {
+            var removeCartItemButtons =
+                document.getElementsByClassName("btn-danger");
+            for (var i = 0; i < removeCartItemButtons.length; i++) {
+                var button = removeCartItemButtons[i];
+                button.addEventListener("click", removeCartItem);
+            }
+
+            var quantityInputs = document.getElementsByClassName(
+                "cart-quantity-input"
+            );
+            for (var i = 0; i < quantityInputs.length; i++) {
+                var input = quantityInputs[i];
+                input.addEventListener("change", quantityChanged);
+            }
+
+            var addToCartButtons =
+                document.getElementsByClassName("shop-item-button");
+            for (var i = 0; i < addToCartButtons.length; i++) {
+                var button = addToCartButtons[i];
+                button.addEventListener("click", addToCartClicked);
+            }
+
+            document
+                .getElementsByClassName("btn-purchase")[0]
+                .addEventListener("click", purchaseClicked);
+        }
+
+        function purchaseClicked() {
+            alert("Thank you for your purchase");
+            var cartItems = document.getElementsByClassName("cart-items")[0];
+            while (cartItems.hasChildNodes()) {
+                cartItems.removeChild(cartItems.firstChild);
+            }
+            updateCartTotal();
+        }
+
+        function removeCartItem(event) {
+            var buttonClicked = event.target;
+            buttonClicked.parentElement.parentElement.remove();
+            updateCartTotal();
+        }
+
+        function quantityChanged(event) {
+            var input = event.target;
+            if (isNaN(input.value) || input.value <= 0) {
+                input.value = 1;
+            }
+            updateCartTotal();
+        }
+
+        function addToCartClicked(event) {
+            var button = event.target;
+            var shopItem = button.parentElement.parentElement;
+            var title =
+                shopItem.getElementsByClassName("shop-item-title")[0].innerText;
+            var price =
+                shopItem.getElementsByClassName("shop-item-price")[0].innerText;
+            var imageSrc =
+                shopItem.getElementsByClassName("shop-item-image")[0].src;
+            addItemToCart(title, price, imageSrc);
+            updateCartTotal();
+        }
+
+        function addItemToCart(title, price, imageSrc) {
+            var cartRow = document.createElement("div");
+            cartRow.classList.add("cart-row");
+            var cartItems = document.getElementsByClassName("cart-items")[0];
+            var cartItemNames = cartItems.getElementsByClassName("cart-item-title");
+            for (var i = 0; i < cartItemNames.length; i++) {
+                if (cartItemNames[i].innerText == title) {
+                    alert("This item is already added to the cart");
+                    return;
+                }
+            }
+            var cartRowContents = `
+                            <div class="cart-item cart-column">
+                                <img class="cart-item-image" src="${imageSrc}" width="100" height="100">
+                                <span class="cart-item-title">${title}</span>
+                            </div>
+                            <span class="cart-price cart-column">${price}</span>
+                            <div class="cart-quantity cart-column">
+                                <input class="cart-quantity-input" type="number" value="1">
+                                <button class="btn btn-danger" type="button">REMOVE</button>
+                            </div>`;
+            cartRow.innerHTML = cartRowContents;
+            cartItems.append(cartRow);
+            cartRow
+                .getElementsByClassName("btn-danger")[0]
+                .addEventListener("click", removeCartItem);
+            cartRow
+                .getElementsByClassName("cart-quantity-input")[0]
+                .addEventListener("change", quantityChanged);
+        }
+
+        function updateCartTotal() {
+            var cartItemContainer =
+                document.getElementsByClassName("cart-items")[0];
+            var cartRows = cartItemContainer.getElementsByClassName("cart-row");
+            var total = 0;
+            for (var i = 0; i < cartRows.length; i++) {
+                var cartRow = cartRows[i];
+                var priceElement = cartRow.getElementsByClassName("cart-price")[0];
+                var quantityElement = cartRow.getElementsByClassName(
+                    "cart-quantity-input"
+                )[0];
+                var price = parseFloat(priceElement.innerText.replace("$", ""));
+                var quantity = quantityElement.value;
+                total = total + price * quantity;
+            }
+            total = Math.round(total * 100) / 100;
+            document.getElementsByClassName("cart-total-price")[0].innerText =
+                "$" + total;
+        }
+    </script>
+  </body>
+</html>
